@@ -1,6 +1,9 @@
 #!/bin/bash
 
-# 更改 motd
+# 清空 motd 文件
+sudo truncate -s 0 /etc/motd
+
+# 添加新的 motd 内容
 sudo bash -c 'cat << "EOF" > /etc/motd
 __________         _____  _____/\        _________                                
 \______   \_____ _/ ____\/ ____)/_____  /   _____/ ______________  __ ___________ 
@@ -20,3 +23,9 @@ echo "export PS1=\"$PS1\"" >> ~/.bashrc
 source ~/.bashrc
 
 echo "motd and PS1 updated successfully."
+
+echo "按任意键断开 SSH 连接..."
+read -n1 -r -s -p "Press any key to continue"
+if [[ $REPLY ]]; then
+    exit
+fi
