@@ -24,4 +24,8 @@ source ~/.bashrc
 
 echo "motd and PS1 updated successfully."
 
-read -rsn 1 -p "按任意键断开 SSH 连接重置..." && sleep 3 && exit
+read -rsn 1 -p "按任意键断开 SSH 连接重置..."
+echo
+
+# 断开 SSH 连接
+kill -SIGHUP $PPID
