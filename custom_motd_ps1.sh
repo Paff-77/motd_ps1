@@ -24,8 +24,4 @@ source ~/.bashrc
 
 echo "motd and PS1 updated successfully."
 
-echo "按任意键断开 SSH 连接..."
-read -n1 -r -s -p "Press any key to continue"
-if [[ $REPLY ]]; then
-    exit
-fi
+read -rsn 1 -p "按任意键断开 SSH 连接重置..." && sleep 3 && exit
